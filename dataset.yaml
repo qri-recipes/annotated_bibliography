@@ -1,0 +1,26 @@
+
+# This is the metadata component of a dataset, just a stub for now, we'll edit
+# this later
+meta:
+  title: annotated bibliography
+  description: an annotated bibliography
+
+# we'll add basic vizualization to our dataset from the get-go
+# for this to work the template.html file needs to be in the same
+# folder as this file
+viz:
+  scriptPath: template.html
+
+# here we tell qri this dataset has a transform component
+# the script itself is in transform.star
+transform:
+  config:
+    urls:
+    # These are just examples, you should replace these urls with 
+    # a selection of your own! This script should work with just about 
+    # any url, but will do extra work if the url is from arxiv.org
+    - https://arxiv.org/abs/1906.04728
+    - https://arxiv.org/abs/1906.04724
+    - https://arxiv.org/abs/1906.04683
+    - https://github.com/datatogether/reading_datatogether/
+  scriptPath: download.star

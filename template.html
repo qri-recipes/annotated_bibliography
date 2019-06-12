@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <style>
+      .wrap{
+        max-width: 800px;
+        margin: 4em auto;
+        width: 70%;
+      }
+      .annotations{
+        margin-left: 1em;
+      }
+      @media print {
+        .wrap { width: 85%; max-width: 1200px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>{{ ds.meta.title }}</h1>
+        <p>{{ ds.meta.description }}</p>
+        <br />
+      </header>
+      <section>
+      {{ range allBodyEntries }}
+        <h3>{{ .article.name }}</h3>
+        <a href="{{ .article.url }}">{{ .article.url }}</a>
+        <p>{{ .article.description }}</p>
+        <div class="annotations">
+          {{ if .annotations.rating }}<p>{{.annotations.rating}}/5</p>{{ end }}
+          {{ if .annotations.notes }}<p><i>{{ .annotations.notes }}</i></p>{{ end }}
+        </div>
+        <br />
+      {{ end }}
+      </section>
+      <hr />
+      {{ block "citation" . }}{{ end }}
+    </div>
+  </body>
+</html>
